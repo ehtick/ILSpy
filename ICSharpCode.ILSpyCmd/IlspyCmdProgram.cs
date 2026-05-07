@@ -276,8 +276,8 @@ Examples:
 					var checkResult = await updateCheckTask;
 					if (null != checkResult && checkResult.UpdateRecommendation)
 					{
-						Console.WriteLine("You are not using the latest version of the tool, please update.");
-						Console.WriteLine($"Latest version is '{checkResult.LatestVersion}' (yours is '{checkResult.RunningVersion}')");
+						app.Error.WriteLine("You are not using the latest version of the tool, please update.");
+						app.Error.WriteLine($"Latest version is '{checkResult.LatestVersion}' (yours is '{checkResult.RunningVersion}')");
 					}
 				}
 			}
