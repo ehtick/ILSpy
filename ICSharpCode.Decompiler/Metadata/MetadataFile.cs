@@ -45,7 +45,7 @@ namespace ICSharpCode.Decompiler.Metadata
 	/// decompiled type systems.
 	/// </remarks>
 	[DebuggerDisplay("{Kind}: {FileName}")]
-	public class MetadataFile
+	public class MetadataFile : IDisposable
 	{
 		public enum MetadataFileKind
 		{
@@ -295,6 +295,16 @@ namespace ICSharpCode.Decompiler.Metadata
 		public IModuleReference WithOptions(TypeSystemOptions options)
 		{
 			return new MetadataFileWithOptions(this, options);
+		}
+
+		public void Dispose()
+		{
+			Dispose(disposing: true);
+			GC.SuppressFinalize(this);
+		}
+
+		protected virtual void Dispose(bool disposing)
+		{
 		}
 
 		private class MetadataFileWithOptions : IModuleReference
