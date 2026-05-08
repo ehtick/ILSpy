@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Reflection.PortableExecutable;
@@ -285,6 +286,8 @@ namespace ICSharpCode.Decompiler.Metadata
 			throw new BadImageFormatException("This metadata file does not support sections.");
 		}
 
+		[SuppressMessage("Design", "CA1065:Do not raise exceptions in unexpected locations",
+			Justification = "Throw signals that this MetadataFileKind has no PE sections; derived PE-like kinds override.")]
 		public virtual ImmutableArray<SectionHeader> SectionHeaders => throw new BadImageFormatException("This metadata file does not support sections.");
 
 		/// <summary>
