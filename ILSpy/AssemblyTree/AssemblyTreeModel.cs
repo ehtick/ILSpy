@@ -947,7 +947,7 @@ namespace ICSharpCode.ILSpy.AssemblyTree
 
 		private void RefreshInternal()
 		{
-			_ = RefreshInternalAsync();
+			RefreshInternalAsync().HandleExceptions();
 		}
 
 		private async Task RefreshInternalAsync()
@@ -958,15 +958,25 @@ namespace ICSharpCode.ILSpy.AssemblyTree
 
 				ShowAssemblyList(settingsService.AssemblyListManager.LoadList(AssemblyList.ListName));
 
-				// Ensure assembly loaded before FindNodeByPath to allow lazy-loaded resource nodes to be found
+				// Ensure the assembly is loaded before FindNodeByPath, so lazy-loaded
+				// resource nodes (e.g. .baml entries) are present in the tree.
 				if (path?.Length > 0)
 				{
-					foreach (var asm in AssemblyList.GetAssemblies())
+					var rootAssembly = AssemblyList.FindAssembly(path[0]);
+					if (rootAssembly != null)
 					{
-						if (asm.FileName == path[0])
+						// FindNodeByPath() blocks the UI if the assembly is not yet loaded,
+						// so use an async wait instead.
+						var preAwaitSelection = SelectedItem;
+						await rootAssembly.GetMetadataFileAsync().Catch<Exception>(_ => { });
+
+						// If the user navigated to a different node while the assembly
+						// was loading, respect that — don't restore the pre-refresh path.
+						// A change to null counts too (e.g. user cleared the selection).
+						if (!ReferenceEquals(SelectedItem, preAwaitSelection))
 						{
-							await asm.GetMetadataFileAsync().Catch<Exception>(_ => { });
-							break;
+							RefreshDecompiledView();
+							return;
 						}
 					}
 				}
