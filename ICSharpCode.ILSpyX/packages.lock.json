@@ -33,15 +33,15 @@
       },
       "System.Composition.AttributedModel": {
         "type": "Direct",
-        "requested": "[10.0.6, )",
-        "resolved": "10.0.6",
-        "contentHash": "sdv1Uk4auk8lc/0hsuAwE8Hpgg3tgbZDk4yRANIpfgk13f6Ssh+sKQviJchygk0ZR/fnFV4LtMyqzwZS8g7UaQ=="
+        "requested": "[10.0.7, )",
+        "resolved": "10.0.7",
+        "contentHash": "/QB+T1DmMdn/FCuWNkgrrGgcJ8qhXqNoPOz7DXIFEM8v9nvMAPho/phG8yipIknt4Igu4KcdMp4SrSbbszTbuQ=="
       },
       "System.Reflection.Metadata": {
         "type": "Direct",
-        "requested": "[10.0.6, )",
-        "resolved": "10.0.6",
-        "contentHash": "JQ3LKu6fdgnSqrgD5Uwfjvngi40lKjxWpUsaUnjQCgF4LWAjs+55ytZx11U+09FRByMS07LrFv89KXViUhlWTQ=="
+        "requested": "[10.0.7, )",
+        "resolved": "10.0.7",
+        "contentHash": "FEBU/i3gHeleqayWrbWieI5MlepDBTcjAxMzjGbK7FwGtlpxGSU1Lt11W1/o4ExdqsNtboiVhT5s4kNtH3eqvw=="
       },
       "System.Runtime.CompilerServices.Unsafe": {
         "type": "Direct",
@@ -51,9 +51,9 @@
       },
       "TomsToolbox.Composition.Analyzer": {
         "type": "Direct",
-        "requested": "[2.23.0, )",
-        "resolved": "2.23.0",
-        "contentHash": "WHvTkPV5AI9FQY7MB7PUWgIkm69NEiCmuG0A7cVXFF/wNQ0xI5YjS60a20vM1Z1Sg+mDDkZ4452hwFGaky0Txg=="
+        "requested": "[2.24.0, )",
+        "resolved": "2.24.0",
+        "contentHash": "dKHqW1MeAMnDIbtx8qDTsGwy/7LUiQ3ccdzHX0PzCh1r98Lgl/1deIky9+ojZO0K5HjeA7uE+eW9/h+v7EOIBA=="
       },
       "Microsoft.Build.Tasks.Git": {
         "type": "Transitive",
@@ -82,7 +82,7 @@
       },
       "System.Collections.Immutable": {
         "type": "CentralTransitive",
-        "requested": "[10.0.6, )",
+        "requested": "[10.0.7, )",
         "resolved": "9.0.0",
         "contentHash": "QhkXUl2gNrQtvPmtBTQHb0YsUrDiDQ2QS09YbtTTiSjGcf7NBqtYbrG/BE06zcBPCKEwQGzIv13IVdXNOSub2w=="
       }
